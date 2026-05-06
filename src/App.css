@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Красим всё пространство браузера */
+:root, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* Градиент теперь здесь, он не может сжаться */
+  background: linear-gradient(to bottom, #A5F3FC 0%, #F8F5F2 40%, #F8F5F2 60%, #BCF5D1 100%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.nature-bg {
+  /* Убираем отсюда фон, он уже в body */
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Лепестки */
+.petal {
+  position: absolute;
+  background-color: #fbcfe8;
+  border-radius: 150% 0 150% 0;
+  pointer-events: none;
+  z-index: 5;
+  animation: fall linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+  100% { transform: translateY(110vh) translateX(150px) rotate(360deg); }
+}
+
+/* Анимация для Истории */
+.animate-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
