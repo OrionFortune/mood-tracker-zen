@@ -15,7 +15,6 @@ function Auth() {
     e.preventDefault();
     setError('');
 
-    // Валидация длины пароля на стороне клиента
     if (password.length < 6) {
       setError("Salasana on liian lyhyt. Sen täytyy olla vähintään 6 merkkiä.");
       return;
@@ -30,7 +29,6 @@ function Auth() {
     } catch (err) {
       console.error("Firebase auth error:", err.code);
       
-      // Детальные сообщения об ошибках
       switch (err.code) {
         case 'auth/invalid-email':
           setError("Sähköpostiosoite on virheellinen.");
